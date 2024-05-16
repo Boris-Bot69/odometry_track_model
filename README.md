@@ -1,21 +1,33 @@
-This code describe the single-track model of a car.
+Single-Track Model of a Car
 
-What here is trying to achieve is to create a phone shape of a car trajectory.
+This code describes the single-track model of a car and simulates its trajectory to create a phone-like shape.
 
-You have the parameters wheelbase and the speed of the 4 wheels each.
+Overview
 
-And also the wheel angle in front and in the back:
+The goal is to simulate the car's movement based on given parameters, including the wheelbase, wheel speeds, and wheel angles. The parameters used are:
 
-beta_R = 0.0  # Initial rear wheel angle (no steering)
+Wheelbase (r_b)
 
-beta_F = 1.0  # Initial front wheel angle for turning
+Speeds of the four wheels (vFL, vFR, vRL, vRR)
 
-The direction of the car is depended on the value of beta_F. If beta_F is 0, the car will drive straight, if not, it will make a turn.
-For creating a phone shape, we need two turns and two times straight line.
+Initial wheel angles:
 
-For turning point, we fixed a duration and the angle for turning left in this example.
-For driving straight, set beta_F zero for specific time.
+beta_R = 0.0 (Initial rear wheel angle - no steering)
 
-In this implementation, there is also 4 other subgraphs, that shows us omega (angle speed), r_RM (this is the distance between point and the middle point), theta (heading) and beta_F and beta_R
+beta_F = 1.0 (Initial front wheel angle - for turning)
 
+The direction of the car depends on the value of beta_F. When beta_F is 0, the car drives straight. When beta_F is non-zero, the car makes a turn.
 
+Creating a Phone Shape
+To create a phone-shaped trajectory, the simulation consists of two turns and two straight segments:
+
+Turning: The car turns left for a fixed duration and angle.
+Straight Line: The car drives straight by setting beta_F to zero for a specified duration.
+Additional Subgraphs
+In addition to the trajectory, the implementation includes four subgraphs that display the following:
+
+Omega (ω): Angular speed
+r_RM: Distance between the reference point and the midpoint of the car
+Theta (θ): Heading angle
+Wheel Angles: beta_F (front wheel angle) and beta_R (rear wheel angle)
+These subgraphs provide insights into the car's dynamics throughout the simulation.
